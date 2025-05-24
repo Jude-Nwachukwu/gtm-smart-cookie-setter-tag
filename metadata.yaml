@@ -1,0 +1,5 @@
+homepage: 'https://dumbdata.co/'
+documentation: 'https://github.com/Jude-Nwachukwu/gtm-smart-cookie-setter-tag'
+versions:
+  - sha: 77008c604ff32319120b15410c16f852d744f702
+    changeNotes: Initial release.
