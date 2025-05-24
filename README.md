@@ -1,4 +1,4 @@
-# Cookie Setter (Smart) — GTM Custom Tag Template
+# Cookie Setter (Smart) - GTM Custom Tag Template
 
 **Cookie Setter (Smart)** is a Google Tag Manager (GTM) **custom tag template** designed to give you fine-grained control over how cookies are set in the browser.
 
