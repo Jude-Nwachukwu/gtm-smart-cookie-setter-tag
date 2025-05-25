@@ -197,31 +197,37 @@ const refreshLifespan = data.ddUpdateLifeSpanUponEachExecution;
 const skipUndefined = data.ddNotSetCookieOnUndefined;
 
 // Handle optional advanced configuration
-const cookieDomain = data.setCookieDomain ? makeString(data.inputCookieDomain) : undefined;
-const cookiePath = data.setCookiePath ? makeString(data.inputCookiePath) : undefined;
+const cookieDomain = data.setCookieDomain ? makeString(data.inputCookieDomain) : 'auto';
+const cookiePath = data.setCookiePath ? makeString(data.inputCookiePath) : '/';
 
 // Check if cookieValue is valid (not undefined, null, empty string, or string representations of them)
 const valueType = getType(rawCookieValue);
-const cookieValue = makeString(rawCookieValue);
-const isValueValid = valueType !== 'undefined' && valueType !== 'null' && cookieValue !== '' && cookieValue !== 'undefined' && cookieValue !== 'null';
+const inputValue = makeString(rawCookieValue);
+const isValueValid = valueType !== 'undefined' && valueType !== 'null' && inputValue !== '' && inputValue !== 'undefined' && inputValue !== 'null';
 
-if (skipUndefined && !isValueValid) {
+// Retrieve existing cookie
+const existingCookie = getCookieValues(cookieName);
+const existingValue = existingCookie ? makeString(existingCookie) : null;
+
+// Decide which value to use
+const finalValue = isValueValid ? inputValue : existingValue;
+
+// If skipUndefined is enabled and there's no valid new or existing value, skip setting
+if (skipUndefined && !finalValue) {
   data.gtmOnSuccess();
   return;
 }
 
-// Check if cookie exists and value matches to avoid unnecessary overwrite
-const existingCookie = getCookieValues(cookieName);
-const existingValue = existingCookie ? makeString(existingCookie) : null;
-const isSameValue = existingValue === cookieValue;
+// Determine if the value has changed
+const isSameValue = existingValue === finalValue;
 
-// Build cookie options
+// Build cookie options with default domain and path if not overridden
 let setOptions = {
   domain: cookieDomain,
   path: cookiePath
 };
 
-// Only proceed to set cookie if lifespan should be updated or value differs from existing
+// Only set the cookie if refresh is enabled, or there's no cookie, or the value changed
 if (refreshLifespan || !existingCookie || !isSameValue) {
   let maxAge = 0;
   if (cookieDuration === 'secondsDuration') {
@@ -235,8 +241,8 @@ if (refreshLifespan || !existingCookie || !isSameValue) {
   }
   setOptions['max-age'] = maxAge;
 
-  // Set the cookie
-  setCookie(cookieName, cookieValue, setOptions);
+  // Set the cookie with the final value
+  setCookie(cookieName, finalValue, setOptions);
 }
 
 // Signal success
@@ -349,6 +355,6 @@ setup: ''
 
 ___NOTES___
 
-Created on 5/24/2025, 9:03:05 PM
+Created on 5/25/2025, 3:21:03 PM
 
 
