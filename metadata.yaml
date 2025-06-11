@@ -4,7 +4,7 @@ documentation: 'https://github.com/Jude-Nwachukwu/gtm-smart-cookie-setter-tag'
 versions:
 # LATEST VERSION
   - sha: 191165b0ccdc0f0fee5019d610562b3ba945a96f
-    changeNotes: By default, cookies are now stored using domain 'auto' and path '/'.
+    changeNotes: By default, cookies are now stored using domain auto and path /.
 
 #INITIAL VERSION
   - sha: 77008c604ff32319120b15410c16f852d744f702
