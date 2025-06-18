@@ -2,9 +2,9 @@
 homepage: 'https://dumbdata.co/'
 documentation: 'https://github.com/Jude-Nwachukwu/gtm-smart-cookie-setter-tag'
 versions:
-#LATEST VERSION
+# LATEST VERSION
   - sha: aba23706124217091cf4a7cb282c54e534fff615
-    changeNotes: INFO JSON now includes the category.
+    changeNotes: policy update.
     
 #OLDER VERSION
    - sha: 191165b0ccdc0f0fee5019d610562b3ba945a96f
