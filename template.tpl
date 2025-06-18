@@ -14,6 +14,9 @@ ___INFO___
   "version": 1,
   "securityGroups": [],
   "displayName": "Cookie Setter (Smart)",
+  "categories": [
+    "ANALYTICS"
+  ],
   "brand": {
     "id": "brand_dummy",
     "displayName": "DumbData",
@@ -355,6 +358,6 @@ setup: ''
 
 ___NOTES___
 
-Created on 5/25/2025, 3:21:03 PM
+Created on 6/18/2025, 1:19:23 PM
 
 
