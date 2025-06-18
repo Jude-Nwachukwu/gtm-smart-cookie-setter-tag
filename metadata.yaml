@@ -2,14 +2,16 @@
 homepage: 'https://dumbdata.co/'
 documentation: 'https://github.com/Jude-Nwachukwu/gtm-smart-cookie-setter-tag'
 versions:
-# LATEST VERSION
+#LATEST VERSION
   - sha: aba23706124217091cf4a7cb282c54e534fff615
-    changeNotes: policy update.
-    
-#OLDER VERSION
-   - sha: 191165b0ccdc0f0fee5019d610562b3ba945a96f
-    changeNotes: By default, cookies are now stored using domain auto and top path.
+    changeNotes: INFO JSON now includes the category.
 
+  
+#OLDER VERSION
+  - sha: 191165b0ccdc0f0fee5019d610562b3ba945a96f
+    changeNotes: cookies are now stored using domain auto and top path by default.
+
+    
 #INITIAL VERSION
   - sha: 77008c604ff32319120b15410c16f852d744f702
     changeNotes: Initial release.
